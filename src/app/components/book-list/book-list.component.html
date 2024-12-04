@@ -1,0 +1,20 @@
+<div>
+  <h2>My Book History</h2>
+  <ul>
+    <li *ngFor="let book of books">
+      <h3>{{ book.title }} - {{ book.author }}</h3>
+      <p>Rating: {{ book.rating }}/5</p>
+      <p>Review: {{ book.review }}</p>
+      <button (click)="editBook(book)">Edit</button>
+    </li>
+  </ul>
+
+  <h3>Add Book</h3>
+  <form (ngSubmit)="addBook()">
+    <input type="text" [(ngModel)]="newBook.title" name="title" placeholder="Title" required />
+    <input type="text" [(ngModel)]="newBook.author" name="author" placeholder="Author" required />
+    <input type="number" [(ngModel)]="newBook.rating" name="rating" placeholder="Rating (1-5)" required />
+    <textarea [(ngModel)]="newBook.review" name="review" placeholder="Review"></textarea>
+    <button type="submit">Add</button>
+  </form>
+</div>
